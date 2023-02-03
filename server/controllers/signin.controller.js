@@ -48,7 +48,13 @@ const signin = async (req, res) => {
       maxAge: 3 * 24 * 60 * 60 * 1000,
     });
 
-    res.json({ message: 'User has been signed in successfully.'});
+    const response = {
+      name: user.name,
+      email: user.email,
+      number: user.number
+    }
+
+    res.json(response);
   } catch (err) {
     res.status(400).json({ error: 'An error occured while signing in!' });
   }

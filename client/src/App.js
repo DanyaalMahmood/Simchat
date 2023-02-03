@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Landingpage from './components/Landingpage';
 import Signin from './components/Signin';
 import Signup from './components/Signup';
+import Test from './components/Test';
+import Friends from './components/Friends';
+import Addfriend from './components/Addfriend';
 
 function App() {
   return (
@@ -11,6 +14,9 @@ function App() {
         <Route index element={<Landingpage/>}/>
         <Route path="signup" element={<Signup/>}/>
         <Route path="signin" element={<Signin/>}/>
+        <Route path="test" element={<Test/>}/>
+        <Route path="friends" element={<Friends/>}/>
+        <Route path="addfriend" element={<Addfriend/>}/>
       </Routes>
     </BrowserRouter>
   );
