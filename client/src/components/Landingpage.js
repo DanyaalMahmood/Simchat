@@ -1,6 +1,31 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import  axios  from 'axios';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../slices/logSlice';
 
 export default function Landingpage() {
+  const nav = useNavigate();
+  const dispatch = useDispatch();
+
+  const checkLogState = async () => {
+    const res = await axios.get('http://localhost:4000/user', {
+      withCredentials: true,
+    });
+    console.log(res, 'res')
+
+    if(res.data.number) {
+
+      await dispatch(login(res.data));
+      nav('/friends')
+    }
+  }
+
+  useEffect(() => {
+    checkLogState();
+  }, []);
+  
+
   return (
     <div className="h-[100vh] w-[100vw] flex justify-center items-center">
       <div className="h-[12vh] w-[30vw] flex-col">
