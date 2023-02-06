@@ -56,6 +56,7 @@ const signup = async (req, res) => {
     });
 
     const response = {
+      id: user.id,
       name: user.name,
       email: user.email,
       number: user.number

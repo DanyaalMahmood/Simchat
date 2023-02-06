@@ -33,7 +33,7 @@ export default function Friends() {
       <div className='bg-[#A5C9CA] h-[85vh] w-full px-2 flex flex-col'>
         {friends.map((friend) => {
           return (
-            <div key={friend.number} onClick={() => {openMessages(friend.number)}} className='flex h-[5vh] items-center justify-around border-b-2 hover:cursor-pointer border-[#395B64]'>
+            <div key={friend.number} onClick={() => {openMessages(friend.number)}} className='flex h-[8vh] items-center justify-around border-b-2 hover:cursor-pointer border-[#395B64]'>
               <h2 className='text-xl font-semibold text-[#395B64]'>{friend.name}</h2>
               <h2 className='text-xl font-semibold text-[#395B64]'>{friend.number}</h2>
             </div>
