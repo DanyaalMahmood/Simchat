@@ -3,10 +3,13 @@ import { useSelector } from "react-redux";
 
 
 import io from 'socket.io-client';
-const socket = io("http://localhost:4000");
+
 
 
 export default function Messages() {
+  const socket = io("http://localhost:4000", {
+    withCredentials: true,
+  });
   const bottomRef = useRef(null);
   const friend = useSelector(state => state.friendlist.current);
   const user = useSelector(state => state.log.number);
