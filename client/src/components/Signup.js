@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 import { login } from '../slices/logSlice';
 
 export default function Signup() {
+  const [z, setz] = useState('-z-10');
+  const [errormessage, setErrormessage] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [number, setNumber] = useState('');
@@ -17,6 +19,13 @@ export default function Signup() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (name === '' || email === '' || number === '' || password === '') {
+      setz('z-10');
+      setErrormessage('Please complete the form!');
+      return;
+    }
+
+
     const user = { name, email, number, password };
 
     try {
@@ -24,19 +33,30 @@ export default function Signup() {
         withCredentials: true,
       });
 
+
+      if(response.data.error) {
+        setz('z-10');
+        setErrormessage(response.data.error);
+        return;
+      }
       dispatch(login(response.data));
       nav('/friends');
     } catch (err) {
-      console.log(err.response.data.error);
+      setz('z-10');
+      setErrormessage(err.message);
     }
   };
 
   return (
-    <div className="bg-red-200 flex justify-center items-center h-[100vh]">
-      <form onSubmit={handleSubmit}>
+    <div className="bg-[#A5C9CA] flex justify-center items-center h-[90vh] relative">
+      <div className={`${z} absolute top-5 h-fit p-2 w-[80vw] bg-[#8d7486] border-4 border-[#E7F6F2] items-center flex justify-center text-lg break-words font-semibold text-[#E7F6F2] rounded-lg`}>
+        {errormessage}
+      </div>
+      <form onSubmit={handleSubmit} className='relative z-0text-[#395B64] text-xl font-bold'>
         <label htmlFor="name">Name:</label>
         <br />
         <input
+          className='focus:outline-0 py-1 px-2 mb-2'
           type="text"
           id="name"
           name="name"
@@ -47,6 +67,7 @@ export default function Signup() {
         <label htmlFor="email">Email:</label>
         <br />
         <input
+          className='focus:outline-0 py-1 px-2 mb-2'
           type="email"
           id="email"
           name="email"
@@ -57,6 +78,7 @@ export default function Signup() {
         <label htmlFor="number">Number:</label>
         <br />
         <input
+          className='focus:outline-0 py-1 px-2 mb-2'
           type="number"
           id="number"
           name="number"
@@ -67,6 +89,7 @@ export default function Signup() {
         <label htmlFor="password">Password:</label>
         <br />
         <input
+          className='focus:outline-0 py-1 px-2 mb-2'
           type="password"
           id="password"
           name="password"
@@ -74,7 +97,7 @@ export default function Signup() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <br />
-        <input className="bg-blue-200" type="submit" value="Submit" />
+        <input className="bg-[#395B64] text-[#A5C9CA] w-full mt-4 h-[5vh]" type="submit" value="Submit" />
       </form>
     </div>
   );

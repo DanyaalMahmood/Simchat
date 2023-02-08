@@ -27,15 +27,15 @@ export default function Landingpage() {
   
 
   return (
-    <div className="h-[100vh] w-[100vw] flex justify-center items-center">
-      <div className="h-[12vh] w-[30vw] flex-col">
+    <div className="h-[90vh] w-[100vw] bg-[#A5C9CA] flex justify-center items-center">
+      <div className="h-[12vh] w-[60vw] flex-col text-xl text-[#A5C9CA] font-semibold">
 
-        <div className="bg-red-400 h-1/2 flex">
-          <Link className="bg-red-300 w-full h-full flex items-center justify-center" to="signup">Signup</Link>
+        <div className="h-1/2 flex mb-2">
+          <Link className="bg-[#395B64] w-full h-full flex items-center justify-center" to="signup">Signup</Link>
         </div>
 
-        <div className="bg-blue-400 h-1/2 flex">
-          <Link className="bg-blue-300 w-full h-full flex items-center justify-center" to="signin">Signin</Link>
+        <div className="h-1/2 flex mt-2">
+          <Link className="bg-[#395B64] w-full h-full flex items-center justify-center" to="signin">Signin</Link>
         </div>
 
       </div>

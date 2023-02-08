@@ -29,7 +29,8 @@ const getfriends = async (req, res) => {
   const a = User.friends;
   const b = User.friendof;
   const friend = a.concat(b);
-
+  console.log('User', User);
+  console.log('friend', friend)
   res.json(friend);
   } catch (err) 
   {

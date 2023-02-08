@@ -8,6 +8,7 @@ const prisma = new PrismaClient();
 
 const signup = require('../server/controllers/signup.controller');
 const signin = require('../server/controllers/signin.controller');
+const signout = require('./controllers/signout.controller')
 const user = require('./controllers/user.controller');
 
 const addfriend = require('../server/controllers/addfriend.controller');
@@ -25,6 +26,7 @@ app.use(cookieParser());
 
 app.post('/signup', signup);
 app.post('/signin', signin);
+app.get('/signout', signout);
 
 app.post('/friends', addfriend);
 app.get('/friends/:number', getfriends);

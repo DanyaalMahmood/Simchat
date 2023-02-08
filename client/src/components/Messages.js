@@ -57,18 +57,19 @@ export default function Messages() {
 
 
   return (
-    <div className="h-[90vh] flex flex-col">
-      <div className="bg-[#A5C9CA] h-[84vh] w-full flex flex-col overflow-y-auto">
+    <div className="h-[90vh] relative flex flex-cols justify-center">
+      <div className="-z-10 relative top-5 h-fit p-2 w-[80vw] bg-[#8d7486] border-4 border-[#E7F6F2] items-center flex justify-center text-lg break-words font-semibold text-[#E7F6F2] rounded-lg">Error</div>
+      <div className="absolute top-0 left-0 z-0 bg-[#A5C9CA] h-[84vh] w-full flex flex-col overflow-y-auto">
         {chat.map((message, index) => {
           return (
-            <div key={index} className={`bg-[#395B64] w-fit break-words max-w-[80%] mx-2 my-1 p-2 rounded-lg text-[#A5C9CA] font-semibold text-base self-${message.sentby == userid ? "end": "start"}`}>
+            <div key={index} className={`bg-[#395B64] w-fit break-words max-w-[80%] mx-2 my-1 p-2 rounded-lg text-[#A5C9CA] font-semibold text-base ${(message.sentby === userid) ? 'self-end' : 'self-start'}`}>
               {message.message}
             </div>
           )
         })}
         <div ref={bottomRef} />
       </div>
-      <div className="h-[6vh] w-full flex">
+      <div className="absolute bottom-0 left-0 z-0 h-[6vh] w-full flex">
         <form className="bg-green-300 flex w-full h-full" onSubmit={handleSubmit}>
           <input className="w-3/4 bg-[#E7F6F2] px-2 focus:outline-0" type="text" value={newmessage} onChange={e => setNewmessage(e.target.value)}/>
           <input type="Submit" value="Send" className="bg-[#395B64] w-1/4 text-[#A5C9CA] text-2xl font-semibold"/>

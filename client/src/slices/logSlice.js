@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const logSlice = createSlice({
   name: 'log',
   initialState: {
-    name: "not logged in"
+    name: "Not Logged In"
   },
   reducers: {
     login: (state, action) => {

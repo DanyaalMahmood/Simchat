@@ -21,7 +21,8 @@ const signup = async (req, res) => {
 
     //if number already exists in the database raise an error
     if (users.length > 0) {
-      return res.status(400).json({ error: 'Number is already in use!' });
+      res.json({ error: 'Number is already in use!' });
+      return;
     }
 
     //create a hash for the password
@@ -64,7 +65,7 @@ const signup = async (req, res) => {
 
     res.json(response);
   } catch (err) {
-    res.status(400).json({ error: 'An error occured while signing up!' });
+    res.json({ error: 'An error occured while signing up!' });
   }
 };
 

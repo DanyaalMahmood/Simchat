@@ -30,6 +30,7 @@ export default function Friends() {
 
   return (
     <div className='bg-[#A5C9CA] h-[90vh] flex flex-col items-center justify-center'>
+      
       <div className='bg-[#A5C9CA] h-[85vh] w-full px-2 flex flex-col'>
         {friends.map((friend) => {
           return (
