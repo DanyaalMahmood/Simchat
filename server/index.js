@@ -17,7 +17,7 @@ const getfriends = require('./controllers/getfriends.controller');
 const checkUser = require('./middlewares/auth.middleware')
 
 const app = express();
-const port = 4000;
+const port = process.env.port;
 
 const options = { origin: true, credentials: true };
 app.use(cors(options));
