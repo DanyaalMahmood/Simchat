@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const http = require('http');
@@ -18,7 +19,7 @@ const getfriends = require('./controllers/getfriends.controller');
 
 const checkUser = require('./middlewares/auth.middleware')
 
-const app = express();
+const app = express() || 3000;
 const port = process.env.port;
 
 const options = { origin: true, credentials: true };
