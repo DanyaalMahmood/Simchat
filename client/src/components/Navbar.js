@@ -1,7 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
 import menu from '../images/menu.png';
 import { useSelector } from "react-redux";
-import axios from "axios";
+import api from './Api';
+
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -15,7 +16,7 @@ function Navbar() {
 
 
   const handleSignout = async () => {
-    await axios.get('http://localhost:4000/signout',{
+    await api.get('/signout',{
       withCredentials: true,
     });
     

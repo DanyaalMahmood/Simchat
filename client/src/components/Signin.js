@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from './Api';
+
 
 import { useDispatch } from 'react-redux';
 import { login } from '../slices/logSlice';
@@ -26,7 +27,7 @@ export default function Signup() {
     const user = { number, password };
 
     try {
-      const response = await axios.post('http://localhost:4000/signin', user, {
+      const response = await api.post('/signin', user, {
         withCredentials: true,
       });
 

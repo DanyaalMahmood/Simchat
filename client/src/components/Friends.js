@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import axios from 'axios';
+import api from './Api';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrent, updates } from '../slices/friendsSlice';
@@ -13,7 +13,7 @@ export default function Friends() {
 
   useEffect(() => {
     const FetchFriends = async () => {
-      const data = (await axios.get(`http://localhost:4000/friends/${usernumber}`)).data;
+      const data = (await api.get(`/friends/${usernumber}`)).data;
       await dispatch(updates({ friends: data }));
     };
     FetchFriends();

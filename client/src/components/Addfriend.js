@@ -1,4 +1,4 @@
-import axios from 'axios';
+import api from './Api';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -22,7 +22,7 @@ export default function Addfriend() {
     try {
 
       const body = { user, friend: number };
-      const res = await axios.post('http://localhost:4000/friends', body, {
+      const res = await api.post('/friends', body, {
         withCredentials: true
       })
       console.log(res.data)

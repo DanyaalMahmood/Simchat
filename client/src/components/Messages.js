@@ -17,7 +17,7 @@ export default function Messages() {
   console.log('userid', userid);
   
   if(socketconnect === false) {
-      socket = io("http://localhost:4000", {
+      socket = io({
       withCredentials: true,
     });
     dispatch(connect({socketconnect: true}))

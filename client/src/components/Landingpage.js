@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
-import  axios  from 'axios';
+import api from './Api';
+
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../slices/logSlice';
@@ -9,7 +10,7 @@ export default function Landingpage() {
   const dispatch = useDispatch();
 
   const checkLogState = async () => {
-    const res = await axios.get('http://localhost:4000/user', {
+    const res = await api.get('/user', {
       withCredentials: true,
     });
     console.log(res, 'res')
