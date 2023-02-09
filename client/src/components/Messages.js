@@ -1,21 +1,27 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-
+import { useDispatch } from "react-redux";
+import { connect } from "../slices/logSlice";
 
 import io from 'socket.io-client';
 
-
+let socket;
 
 export default function Messages() {
-  const socket = io("http://localhost:4000", {
-    withCredentials: true,
-  });
+  const dispatch = useDispatch();
+  const socketconnect = useSelector(state => state.log.socketconnect);
   const bottomRef = useRef(null);
   const friend = useSelector(state => state.friendlist.current);
   const user = useSelector(state => state.log.number);
   const userid = useSelector(state => state.log.id);
   console.log('userid', userid);
-
+  
+  if(socketconnect === false) {
+      socket = io("http://localhost:4000", {
+      withCredentials: true,
+    });
+    dispatch(connect({socketconnect: true}))
+  };
 
   const [chat, setChat] = useState([]);
   const [newmessage, setNewmessage] = useState('');
@@ -25,8 +31,8 @@ export default function Messages() {
       console.log(data);
     });
 
-    socket.on('update_chat', (data) => {
-      setChat(data);
+    socket.on('update_chat', async (data) => {
+      await setChat(data);
       console.log('new chat', data);
     });
 

@@ -6,6 +6,7 @@ const { Server } = require('socket.io');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const jwt = require('jsonwebtoken');
+const path = require('path');
 
 const signup = require('../server/controllers/signup.controller');
 const signin = require('../server/controllers/signin.controller');
@@ -24,6 +25,9 @@ const options = { origin: true, credentials: true };
 app.use(cors(options));
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'build')));
+
+
 
 app.post('/signup', signup);
 app.post('/signin', signin);
@@ -32,6 +36,12 @@ app.get('/signout', signout);
 app.post('/friends', addfriend);
 app.get('/friends/:number', getfriends);
 app.get('/user', checkUser, user);
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 const server = http.createServer(app);
 const io = new Server(server, {
