@@ -8,7 +8,7 @@ const checkUser = async(req, res, next) => {
       if (err) {
         res.json({"error": "Not a valid json token"});
       } else {
-        next();
+        next(); 
       }
     });
   } else {
