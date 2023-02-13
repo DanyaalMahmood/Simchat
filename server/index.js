@@ -46,7 +46,6 @@ app.get('*', function (req, res) {
 
 const server = http.createServer(app);
 const io = new Server(server, {
-  path: "/simchat/socket.io",
   cors: {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST'],
@@ -59,7 +58,7 @@ io.use((socket, next) => {
   const token = socket.handshake.headers.cookie.split('=')[1];
   console.log('token', token)
   try {
-    const decoded = jwt.verify(token, process.env.secret);
+    const decoded = jwt.verify(token, process.env.SECRET);
     socket.user = decoded;
   } catch (err) {
     console.log('user not authorized');

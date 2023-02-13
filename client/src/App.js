@@ -12,7 +12,7 @@ import Navbar from './components/Navbar';
 function App() {
   return (
     <>
-      <BrowserRouter  basename="/simchat">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navbar />}>
             <Route index element={<Landingpage />} />

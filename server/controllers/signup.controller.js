@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 //key used for generating jwt tokens
-const secret = process.env.secret;
+const secret = process.env.SECRET;
 
 const signup = async (req, res) => {
   try {

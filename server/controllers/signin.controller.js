@@ -5,12 +5,12 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 //key used for generating jwt tokens
-const secret = process.env.secret;
+const secret = process.env.SECRET;
 
 const signin = async (req, res) => {
   try {
     //destructuring the attributes of the user from the request body
-    const {number, password } = req.body;
+    const { number, password } = req.body;
 
     //querying the data base for users on basis of the recieved number
     const users = await prisma.users.findMany({
@@ -20,7 +20,9 @@ const signin = async (req, res) => {
     });
     //check to see if the a user even exists with the same number in the database
     if (users.length === 0) {
-      return res.status(400).json({ error: 'No user with this number exists!'});
+      return res
+        .status(400)
+        .json({ error: 'No user with this number exists!' });
     }
 
     //retrieve user that has the same number
@@ -32,9 +34,8 @@ const signin = async (req, res) => {
 
     const checkPassword = await bcrypt.compare(password, user.password);
 
-    if(checkPassword === false)
-    {
-      return res.status(400).json({ error: 'Incorrect Password'});
+    if (checkPassword === false) {
+      return res.status(400).json({ error: 'Incorrect Password' });
     }
 
     //creating json web token to send back with the request
@@ -52,8 +53,8 @@ const signin = async (req, res) => {
       id: user.id,
       name: user.name,
       email: user.email,
-      number: user.number
-    }
+      number: user.number,
+    };
 
     res.json(response);
   } catch (err) {

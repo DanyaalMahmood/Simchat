@@ -2,6 +2,7 @@ import { Outlet, Link } from "react-router-dom";
 import menu from '../images/menu.png';
 import { useSelector } from "react-redux";
 import api from './Api';
+import { useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -9,6 +10,18 @@ import { useDispatch } from "react-redux";
 import { login } from "../slices/logSlice";
 
 function Navbar() {
+
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const setWindowDimensions = () => {
+    console.log('resizing');
+    setWindowHeight(window.innerHeight);
+  };
+  useEffect(() => {
+    window.addEventListener('resize', setWindowDimensions);
+    return () => {
+      window.removeEventListener('resize', setWindowDimensions);
+    };
+  }, []);
   const user = useSelector(state => state.log);
   const [z, setZ ] = useState('-z-10');
   const nav = useNavigate();
