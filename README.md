@@ -1,10 +1,11 @@
 # Simchat
-Chat application that uses Node and Socket.io to enable real time communication between two users. The frontend is build using ReactJS.
+Chat application that uses Node and Socket.io to enable real time communication between two users. The authentication system is based on jwt tokes stored inside of cookies. The front end is constructed using ReactJS.
+
+You can view the [live website here](http://www.danyaalmahmood.com/simchat).
 
 
+https://user-images.githubusercontent.com/110989303/218523421-778de817-f226-436e-9c23-e78507027a1c.mp4
 
-
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
 
 ## Key Features
 
