@@ -49,7 +49,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="bg-[#A5C9CA] flex justify-center items-center h-[90vh] relative">
+    <div className="bg-[#A5C9CA] flex justify-center items-center relative" style={{height: window.innerHeight*0.9}}>
       <div className={`${z} absolute top-5 h-fit p-2 w-[80vw] bg-[#8d7486] border-4 border-[#E7F6F2] items-center flex justify-center text-lg break-words font-semibold text-[#E7F6F2] rounded-lg`}>
         {errormessage}
       </div>

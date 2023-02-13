@@ -36,10 +36,10 @@ function Navbar() {
 
   return (
     <>
-      <div className="bg-[#395B64] h-[10vh] flex justify-between px-4 items-center relative">
+      <div className="bg-[#395B64] flex justify-between px-4 items-center relative" style={{height: window.innerHeight*0.1 + 'px'}}>
         <h1 className="relative text-4xl font-bold text-[#A5C9CA]">Simchat</h1>
         <img onClick={onMenu}  src={menu} alt="menu" className="h-[6vh]"/>
-        <div className={`absolute ${z} w-full flex flex-col left-0 top-[10vh] bg-[#395B64] p-4 border-y-2 border-black text-2xl font-semibold text-[#A5C9CA]`}>
+        <div className={`absolute ${z} w-full flex flex-col left-0 bg-[#395B64] p-4 border-y-2 border-black text-2xl font-semibold text-[#A5C9CA]`} style={{top: window.innerHeight*0.1}}>
           <div className="flex justify-between">
             <div>
               {user.name}

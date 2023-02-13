@@ -19,8 +19,8 @@ const getfriends = require('./controllers/getfriends.controller');
 
 const checkUser = require('./middlewares/auth.middleware')
 
-const app = express() || 3000;
-const port = process.env.port;
+const app = express();
+const port = process.env.PORT || 3000;
 
 const options = { origin: true, credentials: true };
 app.use(cors(options));
@@ -46,6 +46,7 @@ app.get('*', function (req, res) {
 
 const server = http.createServer(app);
 const io = new Server(server, {
+  path: "/simchat/socket.io",
   cors: {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST'],

@@ -9,6 +9,10 @@ export default function Landingpage() {
   const nav = useNavigate();
   const dispatch = useDispatch();
 
+  const height = window.innerHeight;
+  console.log('height', height);
+
+
   const checkLogState = async () => {
     const res = await api.get('/user', {
       withCredentials: true,
@@ -28,7 +32,7 @@ export default function Landingpage() {
   
 
   return (
-    <div className="h-[90vh] w-[100vw] bg-[#A5C9CA] flex justify-center items-center">
+    <div className={`w-[100vw] bg-[#A5C9CA] flex justify-center items-center`} style={{height: height*0.9 + 'px'}}>
       <div className="h-[12vh] w-[60vw] flex-col text-xl text-[#A5C9CA] font-semibold">
 
         <div className="h-1/2 flex mb-2">

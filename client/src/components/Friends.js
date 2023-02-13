@@ -29,9 +29,9 @@ export default function Friends() {
   }
 
   return (
-    <div className='bg-[#A5C9CA] h-[90vh] flex flex-col items-center justify-center'>
+    <div className='bg-[#A5C9CA] flex flex-col items-center justify-center' style={{height: window.innerHeight*0.9}}>
       
-      <div className='bg-[#A5C9CA] h-[85vh] w-full px-2 flex flex-col'>
+      <div className='bg-[#A5C9CA] h-[90%] w-full px-2 flex flex-col'>
         {friends.map((friend) => {
           return (
             <div key={friend.number} onClick={() => {openMessages(friend.number)}} className='flex h-[8vh] items-center justify-around border-b-2 hover:cursor-pointer border-[#395B64]'>
@@ -41,7 +41,7 @@ export default function Friends() {
           )
         })}
       </div>
-      <div className='bg-[#395B64] h-[6vh] w-full'>
+      <div className='bg-[#395B64] h-[10%] w-full' >
         <button className='w-full h-full' onClick={Addfriendhandler}>
           <p className='text-2xl text-[#A5C9CA] font-bold tracking-widest'>
             Add Friends
