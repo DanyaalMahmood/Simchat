@@ -13,7 +13,6 @@ export default function Addfriend() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if(number === '') {
-      console.log('Enter a number');
       setErrormessage('Please enter a number!');
       setz('z-10');
       return;
@@ -25,9 +24,7 @@ export default function Addfriend() {
       const res = await api.post('/friends', body, {
         withCredentials: true
       })
-      console.log(res.data)
       if(res.data.error) {
-        console.log(res.data.error);
         setErrormessage(res.data.error);
         setz('z-10');
         return;
@@ -39,7 +36,6 @@ export default function Addfriend() {
     } catch (err) {
       setErrormessage(err.message);
       setz('z-10');
-      console.log(err.message);
     }
   }
 

@@ -56,12 +56,10 @@ const io = new Server(server, {
 io.use((socket, next) => {
   // since you are sending the token with the query
   const token = socket.handshake.headers.cookie.split('=')[1];
-  console.log('token', token)
   try {
     const decoded = jwt.verify(token, process.env.SECRET);
     socket.user = decoded;
   } catch (err) {
-    console.log('user not authorized');
     return next(new Error("NOT AUTHORIZED"));
   }
   next();
@@ -69,7 +67,7 @@ io.use((socket, next) => {
 
 
 io.on('connection', async (socket) => {
-  console.log(`User connected: ${socket.id}`);
+
 
   socket.on('get_messages', async (data) => {
 
@@ -119,7 +117,6 @@ io.on('connection', async (socket) => {
 
     socket.join(from);
     socket.emit('update_chat', messages);
-    console.log('get_messages recieved event from client side');
   });
 
   socket.on('send_message', async (data) => {
@@ -192,7 +189,7 @@ io.on('connection', async (socket) => {
     socket.emit('update_chat', messages);
     io.to(to).emit('update_chat', messages);
 
-    console.log(mess);
+
     socket.emit('recieve_message', { message: 'message has been delivered' });
   });
 });

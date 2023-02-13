@@ -5,7 +5,6 @@ const prisma = new PrismaClient();
 
 const addfriend = async (req, res) => {
 
-  console.log(req.body);
   const {user, friend} = req.body;
 
   try {
@@ -27,7 +26,6 @@ const addfriend = async (req, res) => {
     },
   });
 
-  console.log(User, "friend added");
   } catch (err) {
     return res.json({error: "This number does not exist."});
   }
