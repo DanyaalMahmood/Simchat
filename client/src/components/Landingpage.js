@@ -10,14 +10,12 @@ export default function Landingpage() {
   const dispatch = useDispatch();
 
   const height = window.innerHeight;
-  console.log('height', height);
 
 
   const checkLogState = async () => {
     const res = await api.get('/user', {
       withCredentials: true,
     });
-    console.log(res, 'res')
 
     if(res.data.number) {
 

@@ -10,7 +10,6 @@ let socket;
 export default function Messages() {
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const setWindowDimensions = () => {
-    console.log('resizing');
     setWindowHeight(window.innerHeight);
   };
   useEffect(() => {
@@ -26,7 +25,6 @@ export default function Messages() {
   const friend = useSelector((state) => state.friendlist.current);
   const user = useSelector((state) => state.log.number);
   const userid = useSelector((state) => state.log.id);
-  console.log('userid', userid);
 
   if (socketconnect === false) {
     socket = io({
@@ -40,12 +38,10 @@ export default function Messages() {
 
   useEffect(() => {
     socket.on('recieve_message', (data) => {
-      console.log(data);
     });
 
     socket.on('update_chat', async (data) => {
       await setChat(data);
-      console.log('new chat', data);
     });
 
     return () => {

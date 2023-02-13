@@ -13,7 +13,6 @@ function Navbar() {
 
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const setWindowDimensions = () => {
-    console.log('resizing');
     setWindowHeight(window.innerHeight);
   };
   useEffect(() => {

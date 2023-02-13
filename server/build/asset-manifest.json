@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/simchat/static/css/main.7382c44f.css",
-    "main.js": "/simchat/static/js/main.ba22e2d2.js",
-    "static/js/787.c4e7f8f9.chunk.js": "/simchat/static/js/787.c4e7f8f9.chunk.js",
-    "index.html": "/simchat/index.html",
-    "main.7382c44f.css.map": "/simchat/static/css/main.7382c44f.css.map",
-    "main.ba22e2d2.js.map": "/simchat/static/js/main.ba22e2d2.js.map",
-    "787.c4e7f8f9.chunk.js.map": "/simchat/static/js/787.c4e7f8f9.chunk.js.map"
+    "main.css": "/static/css/main.619ae7f2.css",
+    "main.js": "/static/js/main.4b9c9097.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "index.html": "/index.html",
+    "main.619ae7f2.css.map": "/static/css/main.619ae7f2.css.map",
+    "main.4b9c9097.js.map": "/static/js/main.4b9c9097.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7382c44f.css",
-    "static/js/main.ba22e2d2.js"
+    "static/css/main.619ae7f2.css",
+    "static/js/main.4b9c9097.js"
   ]
 }
